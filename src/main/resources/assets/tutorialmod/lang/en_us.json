@@ -1,3 +1,6 @@
 {
-  "item.tutorialmod.sapphire": "Sapphire"
+  "item.tutorialmod.sapphire": "Sapphire",
+  "item.tutorialmod.raw_sapphire": "raw_Sapphire",
+
+  "creativetab.tutorial_tab": "Sapphire Tutorial tab"
 }
