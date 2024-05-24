@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.ricardo.tutorialmod.block.ModBlocks;
 import net.ricardo.tutorialmod.item.ModCreativeModeTabs;
 import net.ricardo.tutorialmod.item.ModItems;
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class TutorialMod {
         //registar no modEvent
         ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
-
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -38,7 +39,6 @@ public class TutorialMod {
         modEventBus.addListener(this::addCreative);
 
     }
-
 
 //
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -49,7 +49,7 @@ public class TutorialMod {
     //Adicionar na tab do criativo
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.SPAPPHIRE);
+            event.accept(ModItems.SAPPHIRE);
             event.accept(ModItems.RAW_SAPPHIRE);
         }
 
