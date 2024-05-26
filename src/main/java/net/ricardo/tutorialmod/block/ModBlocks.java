@@ -33,7 +33,7 @@ public class ModBlocks {
                     .strength(3f).requiresCorrectToolForDrops(), UniformInt.of(10,11)));
        public static final RegistryObject<Block> END_STONE_SAPPHIRE_ORE = registerBlock("end_stone_sapphire_ore",
             () -> new DropExperienceBlock( BlockBehaviour.Properties.copy(Blocks.END_STONE)
-                    .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(10,11)));
+                    .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(10000,11000)));
 
        //copiar codigo e mudar os campos
        public static final  RegistryObject<Block> SAPPHIRE_BLOCK = registerBlock("sapphire_block",
