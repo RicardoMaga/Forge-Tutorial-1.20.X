@@ -19,15 +19,19 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         simpleItem(ModItems.SAPPHIRE);
         simpleItem(ModItems.RAW_SAPPHIRE);
-        simpleItem(ModItems.PINE_CONE);
-        simpleItem(ModItems.STRAWBERRY);
+
         simpleItem(ModItems.METAL_DETECTOR);
+        simpleItem(ModItems.STRAWBERRY);
+        simpleItem(ModItems.PINE_CONE);
     }
 
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item){
+    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation( "item/generated")).texture("layer0",
+                new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(TutorialMod.MOD_ID, "item/" + item.getId().getPath()));
-
     }
+
+
+
+
 }

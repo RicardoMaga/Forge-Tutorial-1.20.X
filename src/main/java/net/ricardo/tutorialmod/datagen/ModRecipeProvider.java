@@ -17,10 +17,8 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     public static final List<ItemLike> SAPPHIRE_SMELTABLES = List.of(ModItems.RAW_SAPPHIRE.get(),
-              ModBlocks.SAPPHIRE_ORE.get(), ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get(), ModBlocks.END_STONE_SAPPHIRE_ORE.get(),
-              ModBlocks.NETHER_SAPPHIRE_ORE.get());
-
-
+            ModBlocks.SAPPHIRE_ORE.get(), ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get(), ModBlocks.NETHER_SAPPHIRE_ORE.get(),
+            ModBlocks.END_STONE_SAPPHIRE_ORE.get());
 
 
     public ModRecipeProvider(PackOutput pOutput) {
@@ -28,23 +26,25 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
-            oreSmelting(pWriter,SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE.get(),100,20,"sapphire");
-            oreBlasting(pWriter,SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE.get(),100,20,"sapphire");
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        oreBlasting(consumer, SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE.get(), 1000, 1, "sapphire");
+        oreSmelting(consumer, SAPPHIRE_SMELTABLES, RecipeCategory.MISC, ModItems.SAPPHIRE.get(), 1000, 1, "sapphire");
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SAPPHIRE_BLOCK.get())
                 .pattern("SSS")
                 .pattern("SSS")
                 .pattern("SSS")
                 .define('S', ModItems.SAPPHIRE.get())
-                .unlockedBy(getHasName(ModItems.SAPPHIRE.get()), has(ModItems.SAPPHIRE.get()))
-                .save(pWriter);
+                .unlockedBy(getHasName(ModItems.SAPPHIRE.get()),has(ModItems.SAPPHIRE.get()))
+                .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.SAPPHIRE.get(), 9)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SAPPHIRE.get(), 9)
                 .requires(ModBlocks.SAPPHIRE_BLOCK.get())
                 .unlockedBy(getHasName(ModBlocks.SAPPHIRE_BLOCK.get()), has(ModBlocks.SAPPHIRE_BLOCK.get()))
-                .save(pWriter);
+                .save(consumer);
+
     }
+
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
@@ -60,10 +60,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         while (var9.hasNext()) {
             ItemLike itemlike = (ItemLike) var9.next();
             SimpleCookingRecipeBuilder.generic(Ingredient.of(new ItemLike[]{itemlike}), pCategory, pResult,
-                    pExperience, pCookingTime, pCookingSerializer)
+                            pExperience, pCookingTime, pCookingSerializer)
                     .group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
-                    .save(pFinishedRecipeConsumer, TutorialMod.MOD_ID + ":" + (pResult) + pRecipeName + "_" + getItemName(itemlike));
+                    .save(pFinishedRecipeConsumer, TutorialMod.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
-
     }
 }
+
