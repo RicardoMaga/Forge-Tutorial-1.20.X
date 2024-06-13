@@ -31,6 +31,8 @@ public class ModCreativeModeTabs {
                         // COMIDA
                         pOutput.accept(ModItems.STRAWBERRY.get());
 
+                        pOutput.accept(ModItems.STRAWBERRY_SEEDS.get());
+
 
                         //Custom Items / Advanced
                         pOutput.accept(ModItems.METAL_DETECTOR.get());

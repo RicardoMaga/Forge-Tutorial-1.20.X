@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.ricardo.tutorialmod.TutorialMod;
+import net.ricardo.tutorialmod.block.ModBlocks;
 import net.ricardo.tutorialmod.item.custom.Fuelitem;
 import net.ricardo.tutorialmod.item.custom.MetalDetectorItem;
 import net.ricardo.tutorialmod.item.custom.ModArmorItem;
@@ -39,6 +40,10 @@ public class ModItems {
     //Combustivel / Fornalha
     public static final RegistryObject<Item> PINE_CONE = ITEMS.register("pine_cone",
             () -> new Fuelitem(new Item.Properties(),400));
+
+    //Sementes
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY_CROP.get(), new Item.Properties()));
 
 
     //Custom Tools
