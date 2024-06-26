@@ -8,11 +8,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.ricardo.tutorialmod.TutorialMod;
+import net.ricardo.tutorialmod.block.custom.CornCropBlock;
 import net.ricardo.tutorialmod.block.custom.SoundBlock;
 import net.ricardo.tutorialmod.block.custom.StrawberryCropBlock;
 import net.ricardo.tutorialmod.item.ModItems;
@@ -77,6 +79,14 @@ public class ModBlocks {
 
        public static final RegistryObject<Block> STRAWBERRY_CROP = BLOCKS.register("strawberry_crop",
                () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+
+
+       public static final RegistryObject<Block> CORN_CROP = BLOCKS.register("corn_crop",
+               () -> new CornCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
+
+
+
+
 
        private  static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
            RegistryObject<T> toReturn = BLOCKS.register(name, block);
