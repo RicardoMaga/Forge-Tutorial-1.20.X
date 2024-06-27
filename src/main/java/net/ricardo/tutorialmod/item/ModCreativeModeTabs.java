@@ -76,6 +76,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModBlocks.NETHER_SAPPHIRE_ORE.get());
                         pOutput.accept(ModBlocks.END_STONE_SAPPHIRE_ORE.get());
 
+                        //FLORES
+                        pOutput.accept(ModBlocks.CATMINT.get());
+
                     })
                     .build());
 
